@@ -12,16 +12,10 @@ source activate tensorflow
 conda install --yes numpy wheel bazel
 conda install -c conda-forge keras-applications
 
-# Compile TensorFlow
-
-# Here you can change the TensorFlow version you want to build.
-# You can also tweak the optimizations and various parameters for the build compilation.
-# See https://www.tensorflow.org/install/install_sources for more details.
-
+# Checkout tensorflow
 cd /
 rm -fr tensorflow/
-git clone --depth 1 --branch $TF_VERSION_GIT_TAG "https://github.com/tensorflow/tensorflow.git"
-
+git clone --branch r1.10 "https://github.com/tensorflow/tensorflow.git"
 TF_ROOT=/tensorflow
 cd $TF_ROOT
 
@@ -31,7 +25,7 @@ export PYTHON_LIB_PATH="$($PYTHON_BIN_PATH -c 'import site; print(site.getsitepa
 export PYTHONPATH=${TF_ROOT}/lib
 export PYTHON_ARG=${TF_ROOT}/lib
 
-# Compilation parameters
+# Compilation parameters, used in configure
 export TF_NEED_CUDA=0
 export TF_NEED_GCP=0
 export TF_CUDA_COMPUTE_CAPABILITIES=5.2,3.5
@@ -66,12 +60,6 @@ bazel build --config=opt \
 bazel build --config=opt //tensorflow:libtensorflow_cc.so
 bazel build --config=opt //tensorflow:libtensorflow.so
 bazel build --config=opt //tensorflow:libtensorflow_framework.so
-
-
-# Project name can only be set for TF > 1.8
-#PROJECT_NAME="tensorflow_gpu_cuda_${TF_CUDA_VERSION}_cudnn_${TF_CUDNN_VERSION}"
-#bazel-bin/tensorflow/tools/pip_package/build_pip_package /wheels --project_name $PROJECT_NAME
-
 bazel-bin/tensorflow/tools/pip_package/build_pip_package /wheels
 
 # Fix wheel folder permissions
