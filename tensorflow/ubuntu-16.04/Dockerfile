@@ -20,5 +20,5 @@ RUN wget "https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh"
     /conda/bin/conda update --all --yes
 
 COPY build.sh /build.sh
-
-CMD bash build.sh
+RUN chmod +x ./build.sh
+RUN ./build.sh
