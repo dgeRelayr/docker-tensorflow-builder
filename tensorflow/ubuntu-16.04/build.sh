@@ -63,6 +63,11 @@ bazel build --config=opt \
 		    --action_env="LD_LIBRARY_PATH=${LD_LIBRARY_PATH}" \
 		    //tensorflow/tools/pip_package:build_pip_package
 
+bazel build --config=opt //tensorflow:libtensorflow_cc.so
+bazel build --config=opt //tensorflow:libtensorflow.so
+bazel build --config=opt //tensorflow:libtensorflow_framework.so
+
+
 # Project name can only be set for TF > 1.8
 #PROJECT_NAME="tensorflow_gpu_cuda_${TF_CUDA_VERSION}_cudnn_${TF_CUDNN_VERSION}"
 #bazel-bin/tensorflow/tools/pip_package/build_pip_package /wheels --project_name $PROJECT_NAME
