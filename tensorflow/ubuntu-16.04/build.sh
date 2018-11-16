@@ -7,7 +7,7 @@ export PATH="/conda/bin:/usr/bin:$PATH"
 gcc --version
 
 # Install an appropriate Python environment
-conda create --yes -n tensorflow python==$PYTHON_VERSION
+conda create --yes -n tensorflow python==3.6
 source activate tensorflow
 conda install --yes numpy wheel bazel
 conda install -c conda-forge keras-applications
