@@ -64,3 +64,8 @@ bazel-bin/tensorflow/tools/pip_package/build_pip_package /wheels
 
 # Fix wheel folder permissions
 chmod -R 777 /wheels/
+
+# export artifacts
+mkdir artifacts
+cp -r /tensorflow /artifacts/tensorflow
+cp -r /wheels /artifacts/wheels
