@@ -67,5 +67,5 @@ chmod -R 777 /wheels/
 
 # export artifacts
 mkdir artifacts
-cp -r /tensorflow /artifacts/tensorflow
-cp -r /wheels /artifacts/wheels
+cp -r -L /tensorflow/ /artifacts/
+cp -r -L /wheels/ /artifacts/   

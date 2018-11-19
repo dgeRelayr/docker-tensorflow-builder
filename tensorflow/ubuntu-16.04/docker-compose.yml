@@ -5,7 +5,6 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - ./artifacts/wheels:/artifacts/wheels
-      - ./artifacts/tensorflow:/artifacts/tensorflow
+      - ./artifacts/:/artifacts/
     environment:
       - PYTHON_VERSION=${PYTHON_VERSION-3.6}
