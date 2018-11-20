@@ -9,8 +9,9 @@ gcc --version
 # Install an appropriate Python environment
 conda create --yes -n tensorflow python==3.6
 source activate tensorflow
+conda install -c conda-forge
 conda install --yes numpy wheel bazel
-conda install -c conda-forge keras-applications
+conda install -c keras-applications
 
 # Checkout tensorflow
 cd /
@@ -68,4 +69,4 @@ chmod -R 777 /wheels/
 # export artifacts
 mkdir artifacts
 cp -r -L /tensorflow/ /artifacts/
-cp -r -L /wheels/ /artifacts/   
+cp -r -L /wheels/ /artifacts/
