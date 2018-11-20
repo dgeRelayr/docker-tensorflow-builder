@@ -16,7 +16,7 @@ RUN wget "https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh"
     rm miniconda.sh && \
     echo PATH='/conda/bin:$PATH' >> /root/.bashrc && \
     /conda/bin/conda config --add channels conda-forge && \
-    /conda/bin/conda update --yes -n base conda && \
+    /conda/bin/conda update --yes -n conda && \
     /conda/bin/conda update --all --yes
 
 COPY build.sh /build.sh
